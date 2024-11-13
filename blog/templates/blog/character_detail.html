@@ -1,0 +1,83 @@
+<html>
+    <head>
+        <title>Détail du Personnage</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+        
+        <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .form-section, .character-info {
+            margin-bottom: 30px;
+        }
+        .btn-submit {
+            display: block;
+            width: 100%;
+            background-color: #007bff;
+            color: white;
+            padding: 10px;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+            text-align: center;
+        }
+        .btn-submit:hover {
+            background-color: #0056b3;
+        }
+        .alert-danger {
+            margin-top: 20px;
+        }
+        .character-photo {
+            max-width: 200px;
+            max-height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+    </style>
+    </head>
+    <body>
+        <div class="container">
+            <!-- Affichage du message d'erreur si le formulaire est invalide ou si une condition échoue -->
+            {% if message %}
+            <div class="alert alert-danger" role="alert">
+                {{ message }}
+            </div>
+            {% endif %}
+
+        <!-- Formulaire de changement de lieu -->
+        <div class="form-section">
+            <h1>Modifier le lieu de {{ character.id_character }}</h1>
+            <form method="POST" class="post-form">
+                {% csrf_token %}
+                <div class="form-group">
+                    <b>Changer de lieu : </b>
+                    {{ form.as_ul }}
+                </div>
+                <button type="submit" class="btn btn-submit">OK</button>
+            </form>
+            <a href="{% url 'post_list' %}" class="btn btn-secondary mt-3">Retour à la liste</a>
+        </div>
+
+        <!-- Informations du personnage -->
+        <div class="character-info">
+            <h2>Informations du personnage</h2>
+            <div class="card">
+                <div class="card-body">
+                    <h4>{{ character.id_character }}</h4>
+                    <p><strong>État:</strong> {{ character.etat }}</p>
+                    <p><strong>Type:</strong> {{ character.type }}</p>
+                    <p><strong>Lieu actuel:</strong> {{ character.lieu.id_equip }}</p>
+                    {% if character.photo %}
+                        <img src="{{ character.photo }}" alt="Photo de {{ character.id_character }}" class="character-photo" />
+                    {% else %}
+                        <p>Aucune photo disponible</p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

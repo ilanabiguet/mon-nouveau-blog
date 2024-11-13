@@ -1,0 +1,194 @@
+h1, h2, h3 {
+    text-align: center;
+    font-family: 'Oswald', sans-serif;
+    color: #333;
+    font-weight: bold;
+}
+
+h1 {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+h2, h3 {
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+
+h4 {
+    font-family: 'Oswald', sans-serif;
+    font-weight: bold;
+    color: #333;
+}
+
+p {
+    font-family: 'Oswald', sans-serif;
+    color: #333;
+}
+
+
+.team-section h3 {
+    margin-top: 30px;
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+}
+
+.team-section h3.team-usa {
+    display: flex;
+    align-items: center; 
+    justify-content: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #B22234;
+}
+
+.team-section .usa-flag {
+    width: 30px; 
+    height: auto;
+    margin-left: 10px; 
+}
+
+.team-section h3.team-europe {
+    display: flex;
+    align-items: center; 
+    justify-content: center;
+    font-size: 24px; 
+    margin-bottom: 20px;
+    color: #0033A0;
+}
+
+.team-section .europe-flag {
+    width: 30px; 
+    height: auto;
+    margin-left: 10px; 
+}
+
+
+
+
+.team-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+
+.character-card {
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 10px;
+    width: 30%; 
+    text-align: center;
+}
+
+
+img.character-photo {
+    max-width: 150px;   
+    height: auto;
+    border-radius: 5px;
+    margin-top: 10px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.equipment-section {
+    margin-top: 30px;
+}
+
+.equipment-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.equipment-card {
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 10px;
+    width: 30%;
+    text-align: center;
+}
+
+
+img.equipement-photo {
+    max-width: 150px;   
+    height: auto;
+    border-radius: 5px;
+    margin-top: 10px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+body {
+    font-family: 'Oswald', sans-serif;
+    padding: 0;
+    background-color: #B7D9F6;
+}
+
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+a:hover {
+    color: #003B5C;
+}
+
+
+/* Bandeau bleu en haut de la page */
+.header-banner {
+    background-color: #0071b3;
+    color: white;
+    padding: 15px; 
+    display: flex;
+    align-items: center; 
+    justify-content: center;
+    font-size: 30px; 
+    font-weight: bold; 
+}
+
+.ryder-cup-logo {
+    width: 60px; 
+    height: auto;
+    margin-right: 15px; 
+}
+
+.form-section {
+    max-width: 600px; 
+    margin: 0 auto;  
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 40px; 
+}
+.form-section form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+.form-section button {
+    align-self: center; 
+    padding: 15px 30px;
+    font-size: 18px;
+    background-color: #007bff; 
+    color: white; 
+    border: none; 
+    border-radius: 5px; 
+    cursor: pointer; /* Pointeur sur le bouton */
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+.form-section button:hover {
+    background-color: #0056b3; /* Change la couleur de fond au survol */
+    transform: scale(1.05); /* Augmente légèrement la taille du bouton */
+}

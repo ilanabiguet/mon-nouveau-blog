@@ -1,0 +1,89 @@
+{% load static %}
+<html>
+    <head>
+        <title>Ryder Cup 2025</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+        <link rel="stylesheet" href="{% static 'css/blog.css' %}">
+        <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;700&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <div class="header-banner">
+            <img src="https://static.cdnlogo.com/logos/r/58/ryder-cup-2025-800x800.png" alt="Logo Ryder Cup" class="ryder-cup-logo" />
+            Ryder Cup 2025
+        </div>
+
+        </div>
+        <h2>Joueurs</h2>
+        <div class="team-section">
+            <h3 class="team-europe">Team Europe
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/Flag_of_Europe.svg/640px-Flag_of_Europe.svg.png" alt="Drapeau Europe" class="europe-flag" />
+            </h3>
+            <div class="team-grid">
+                {% for character in characters %}
+                    {% if character.team == "Europe" %}
+                        <div class="character-card">
+                            <h4>
+                                <a href="{% url 'character_detail' id_character=character.id_character %}">{{ character.id_character }}</a>
+                            </h4>
+                            <p>État: {{ character.etat }}</p>
+                            <p>Type: {{ character.type }}</p>
+                            <p>Lieu: {{ character.lieu.id_equip }}</p>
+                            {% if character.photo %}
+                                <img src="{{ character.photo }}" alt="Photo de {{ character.id_character }}" class="character-photo" />
+                            {% else %}
+                                <p>Aucune photo disponible</p>
+                            {% endif %}
+                            
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+
+       
+        <div class="team-section">
+            <h3 class="team-usa">Team USA
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Flag_of_the_United_States.svg/1280px-Flag_of_the_United_States.svg.png" alt="Drapeau USA" class="usa-flag" />
+            </h3>
+            <div class="team-grid">
+                {% for character in characters %}
+                    {% if character.team == "USA" %}
+                        <div class="character-card">
+                            <h4>
+                                <a href="{% url 'character_detail' id_character=character.id_character %}">{{ character.id_character }}</a>
+                            </h4>
+                            <p>État: {{ character.etat }}</p>
+                            <p>Type: {{ character.type }}</p>
+                            <p>Lieu: {{ character.lieu.id_equip }}</p>
+                            {% if character.photo %}
+                                <img src="{{ character.photo }}" alt="Photo de {{ character.id_character }}" class="character-photo" />
+                            {% else %}
+                                <p>Aucune photo disponible</p>
+                            {% endif %}
+                            
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+
+       
+        <h2>Équipements</h2>
+        <div class="equipment-section">
+            <div class="equipment-grid">
+                {% for equipement in equipments %}
+                    <div class="equipment-card">
+                        <h4>{{ equipement.id_equip }}</h4>
+                        <p>Disponibilité: {{ equipement.disponibilite }}</p>
+                        {% if equipement.photo %}
+                            <img src="{{ equipement.photo }}" alt="Photo de {{ equipement.id_equip }}" class="equipement-photo" />
+                        {% else %}
+                            <p>Aucune photo disponible</p>
+                        {% endif %}
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </body>
+</html>
